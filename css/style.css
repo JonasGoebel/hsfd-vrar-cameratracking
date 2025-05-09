@@ -1,0 +1,10 @@
+@import 'reveal.js/dist/reset.css';
+@import 'reveal.js/dist/reveal.css';
+@import 'reveal.js/css/layout.scss';
+
+/* @import './theme/jonas.scss'; */
+/* @import './theme/night.scss'; */
+/* @import './dist/css/theme/jonas.css'; */
+@import 'reveal.js/dist/theme/black.css';
+@import './custom.scss';
+@import './layout/grid.scss';

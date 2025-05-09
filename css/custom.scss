@@ -1,0 +1,297 @@
+a {
+  text-decoration: none !important;
+}
+
+#navbar {
+  position: absolute;
+  z-index: 1;
+  margin: 20px;
+  font-size: 2em;
+  font-family: var(--r-heading-font);
+}
+
+#bottom-navbar {
+  position: absolute;
+  z-index: 1;
+  bottom: 0px;
+  margin: 20px;
+  font-size: 2em;
+  font-family: var(--r-heading-font);
+}
+
+#references {
+  position: absolute;
+  z-index: 1;
+  bottom: 75px;
+  right: 0px;
+  margin: 20px;
+  font-size: 2em;
+  font-family: var(--r-heading-font);
+}
+
+// .titleslide>h4, .titleslide>h2, .titleslide>h1 {
+//   color: #333333 !important;
+// }
+
+.container {
+  display: flex;
+}
+.col {
+  flex: 1;
+}
+
+.colspace>.col {
+  margin: 0px 10px;
+}
+
+.colpadding>.col {
+  padding: 10px;
+}
+
+.black {
+  color: #1e272e;
+}
+
+.black>a {
+  color: #1e272e !important;
+}
+
+
+.black-bck {
+  background: #1e272e;
+}
+
+.yscolor {
+  // color: #38b2ac;
+  color: #9a110a;
+}
+
+.ys-bck {
+  // background: #38b2ac;
+  background: #9a110a;
+}
+
+.green {
+  // color: #27ae60;
+  color: #72bf44
+}
+
+.green-bck {
+  // background: #27ae60;
+  background: #72bf44;
+}
+
+.blue {
+  color: #14a2f0;
+}
+
+.yellow {
+  color: #ffe000;
+}
+
+.blue-bck {
+  background: #14a2f0;
+}
+
+.round-corners {
+    border-radius: 15px;
+}
+
+.small-text {
+    font-size: small;
+}
+
+.space-top {
+  margin-top: 150px;
+}
+
+ul.li-left>li {
+  margin: 0; padding: 0;
+}
+
+.center {
+  align-self: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.ci-card {
+  align-self: center;
+  border-radius: 15px;
+  min-height: 125px;
+}
+
+.hosting-brandimg {
+  height: 250px;
+  width: 500px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.hosting-brandimg>img {
+  background-color: #ecf0f1;
+  border-radius: 25px;
+  padding: 5px;
+}
+
+// .background-opacity>.slide-background-content {
+  // background-image: url("/img/ncbackgroundnew.png");
+  // opacity: 0.3;
+// }
+
+.userinfo {
+  position: absolute;
+  margin-top: 50px;
+}
+
+.userinfo>div>a {
+  color: #ecf0f1;
+}
+
+.selfhost-image {
+  width: 500px;
+  background: white;
+  padding: 10px 15px;
+  border-radius: 15px;
+}
+
+#sourcesTable {
+  font-size: 30px;
+  float: right;
+  margin-right: 25px;
+}
+
+#sourcesTable>tbody>tr>td {
+  border-bottom: 0px;
+}
+
+.mlarrow {
+  width: 100px;
+  margin-top: 50px !important;
+}
+
+.mlarrow-tilted {
+  width: 125px;
+  margin-top: 50px !important;
+  margin-left: 10px !important;
+}
+
+.mlicon {
+  height: 150px;
+}
+
+.aimcol {
+  // background: #ffe000;
+  border-radius: 25px;
+  margin: 25px 50px;
+  // margin: 25px;
+  color: #333333;
+  padding: 50px 25px;
+}
+
+.infraimg {
+  width: 800px;
+  // margin-left: 400px !important;
+  background: #191919
+}
+
+#eval-table>tbody>tr>td {
+  vertical-align: middle;
+  padding: 5px;
+  margin: 0px;
+  padding-right: 15px;
+  // border: none;
+  border-right: 1px solid white !important;
+  text-align: center;
+}
+#eval-table>tbody>tr:first-child>td {
+  border-top: 1px solid white;
+}
+
+#eval-table>tbody>tr:last-child {
+  border-bottom: 1px solid white !important;
+}
+
+#eval-topleftcorner {
+  border-left: none !important;
+  border-top: none !important;
+}
+
+#eval-table>tbody>tr>td:first-child {
+  border-left: 1px solid white;
+}
+
+.eval-right {
+  background: #27ae60;
+}
+
+.eval-wrong {
+  background: #c0392b;
+}
+
+#goal-list>li {
+  margin-bottom: 25px
+}
+
+#fazit-list>div>ul>li {
+  margin-bottom: 15px
+}
+
+.reveal .slide-number {
+  position: absolute;
+  display: block;
+  bottom: 30px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1em;
+  right: 25px;
+  top: 25px;
+  color: $linkColor;
+  background: none;
+}
+
+.primary {
+  color: $linkColor;
+}
+
+.primary-bck {
+  background: $linkColor;
+}
+
+.space-li li+li {
+  margin-top: 15px;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.team-card {
+  border: 1px solid white;
+  border-radius: 25px;
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  
+  div {
+    color: $linkColor;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  ul {
+
+    width: 100%;
+
+    li {
+      list-style-type: none;
+      font-size: 0.9em;
+      margin: -5px 0 -5px -25px;
+      text-align: center;
+      width: 90%;
+    }
+  }
+}

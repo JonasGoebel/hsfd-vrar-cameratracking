@@ -1,0 +1,7 @@
+build-presentation:
+  stage: build
+  before_script:
+    - echo "$CI_JOB_TOKEN" | docker login --username gitlab-ci-token --password-stdin "$CI_REGISTRY"
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$CI_PIPELINE_IID -f docker/Dockerfile .
+    - docker push $CI_REGISTRY_IMAGE:$CI_PIPELINE_IID
