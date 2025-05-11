@@ -200,32 +200,23 @@
         </aside>
       </section>
 
-      <section>
+      <!-- <section>
         <div class="grid-60-40">
           <div class="item-header">
             <h3>Gliederung</h3>
-          </div>
-          <div class="item-right">
-            <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
           </div>
 
           <div class="item-left">
             <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
               <li>Intrinsische und Extrinsische Kameraparameter</li>
               <li>Merkmalbasierte Tracking-Verfahren</li>
-                <ul>
-                    <li>Geometriebasiertes</li>
-                    <li>Weitere merkmalbasierte Tracking-Verfahren</li>
-                    <li>Merkmalsdetekoren</li>
-                    <li>RGBD-Kameras</li>
-                </ul>
               <li>Visual SLAM-Verfahren</li>
               <li>Hybride Tracking-Techniken</li>
               <li>Tracking der Microsoft Hololens</li>
             </ul>
           </div>
         </div>
-      </section>
+      </section>-->
 
       <section>
           <div class="grid-60-40">
@@ -233,7 +224,7 @@
               <h3>Intrinsische und Extrinsische Kameraparameter</h3>
             </div>
             <div class="item-right">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+              <img src="./img/Kameraparameter.png" alt="Kameraparameter" height="700px" class="round-corners">
             </div>
 
             <div class="item-left">
@@ -278,7 +269,7 @@
               <h3>Merkmalbasierte Tracking-Verfahren</h3>
             </div>
             <div class="item-right">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+              <img src="./img/SIFT.jpg" alt="SIFT" height="700px" class="round-corners">
             </div>
 
             <div class="item-left">
@@ -321,6 +312,11 @@
           - Merkmalsdetekoren -> Algos um description zu erstellen
             - SIFT 
             - SURF 
+
+          - kombinierte Verwendung von Farbkameras und Tiefenkameras
+            - RGBD-Kmaeras -> verwenden zur Tiefenerkennung ein mit Infrarot projiziertes Muster oder ein Laufzeitverfahren
+              - bei denen die Laufzeit des reflektierten Lichts bestimmt wird
+              - bekannt durch Kinect geworden
         </aside>
       </section>
 
@@ -329,8 +325,9 @@
             <div class="item-header">
               <h3>Visual SLAM-Verfahren</h3>
             </div>
-            <div class="item-right">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            <div class="item-right">              
+             <img src="./img/Visuel_SLAM_Camera.png" alt="Team" height="700px" class="round-corners">
+              <a  href="https://www.youtube.com/watch?v=9cPqbtiGWKM&ab_channel=Dr.Jimmy%27sFamily">Visual SLAM Beispiel</a>             
             </div>
 
             <div class="item-left">
@@ -398,7 +395,7 @@
               <h3>Tracking der Microsoft Hololens</h3>
             </div>
             <div class="item-right">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+              <img src="./img/Hololens.jpg" alt="Hololens" height="700px" class="round-corners">
             </div>
 
             <div class="item-left">
@@ -407,7 +404,7 @@
                 <li>Vier Kameras (30 HZ) in Kombination mit einer IMU (1000 HZ)</li>
                 <li>Hochauflösende Frontkamera</li>
                 <li>Tiefenkamera (Gestensteuerung)</li>       
-                <li>Graph zur Lageschätzung genutzt (kein globales Koordinatensystem)</li>
+                <li>Graph zur Lageschätzung (kein globales Koordinatensystem)</li>
               </ul>
             </div>
             
@@ -490,6 +487,22 @@
                 <td>[5]</td>
                 <td><a href="https://doi.org/10.1007/978-3-642-28903-3" target="_blank" style="color: #72bf44 !important">Dörner, Ralf & Broll, Wolfgang & Grimm, Paul & Jung, Bernhard. (2013). Virtual und Augmented Reality (VR/AR) - Grundlagen und Methoden der Virtuellen und Augmentierten Realität. 10.1007/978-3-642-28903-3. </a></td>
               </tr>
+              <tr>
+                <td>[6]</td>
+                <td><a href="https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Bachelor-theses/2016/struempel/Bachelor-Struempel.pdf" target="_blank" style="color: #72bf44 !important">https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Bachelor-theses/2016/struempel/Bachelor-Struempel.pdf</a></td>
+              </tr>
+              <tr>
+                <td>[7]</td>
+                <td><a href="https://records.sigmm.org/wp-content/uploads/2020/01/openvslam_image8.png" target="_blank" style="color: #72bf44 !important">https://records.sigmm.org/wp-content/uploads/2020/01/openvslam_image8.png</a></td>
+              </tr>
+              <tr>
+                <td>[8]</td>
+                <td><a href="https://www.codeproject.com/KB/recipes/619039/SIFT.JPG" target="_blank" style="color: #72bf44 !important">https://www.codeproject.com/KB/recipes/619039/SIFT.JPG</a></td>
+              </tr>
+              <tr>
+                <td>[9]</td>
+                <td><a href="https://www.pad4rent.de/wp-content/uploads/eventworx/media/67ef82ec1a891a6ed65d364a.jpg" target="_blank" style="color: #72bf44 !important">https://www.pad4rent.de/wp-content/uploads/eventworx/media/67ef82ec1a891a6ed65d364a.jpg</a></td>
+              </tr>              
             </table>
           </div>
         </div>
