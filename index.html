@@ -204,6 +204,116 @@
           </div>
         </section>
 
+        <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Gliederung</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+                <li>Intrinsische und Extrinsische Kameraparameter</li>
+                <li>Merkmalbasierte Tracking-Verfahren</li>
+                  <ul>
+                      <li>Geometriebasiertes</li>
+                      <li>Weitere merkmalbasierte Tracking-Verfahren</li>
+                      <li>Merkmalsdetekoren</li>
+                      <li>RGBD-Kameras</li>
+                  </ul>
+                <li>Visual SLAM-Verfahren</li>
+                <li>Hybride Tracking-Techniken</li>
+                <li>Tracking der Microsoft Hololens</li>
+              </ul>
+            </div>
+            
+          </div>
+        </section>
+
+        <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Intrinsische und Extrinsische Kameraparameter</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+                <li>Berechnung der Pose der Marke im Verhältnis zur Kamera</li>
+                <li>Intrinsische Kameraparameter:</li>
+                  <ul>
+                      <li>Entstehen mithilfe von Kamerakalibrierung</li>
+                      <li>Mit Intrinsischen Kameraparameter entsteht Kalibrierungsmatrix</li>
+                  </ul>
+                <li>Extrinsische Kameraparameter:</li>
+                  <ul>
+                      <li>Rotationsmatrix und Translationsvektor</li>
+                      <li>Entstehen mithilfe von Kalibrierungsmatrix, Abstand zwischen Eckpunkte und Orientierung der Marke</li>
+                  </ul>
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+            - Marken verschiedene Arten
+              - Muster (AR/VR, Robotik, Kalibrierung verwendet)
+                - AprilTag
+                - ArUco
+              - Natürliche
+                - Ecken, Kanten, Texturen
+              - Farbmarker
+                - Farbige Bälle oder Aufkleber
+            - Intrinsische Kameraparameter:
+              - Kalibrierungsmatrix -> wird die Abbildung der Kamerakoordinaten auf die Bildebene bestimmt
+              - Bildebene -> das 2D Bild
+            - Extrinsische Kameraparameter
+              - mithilfe von Kalibrierungsmatrix K, bekannten Abstands zwischen Eckpunkte, Berücksichtigung der aufgrund der Markenausrichtung bekannten orientierung
+              - lassen sich 3x3 Rotationsmatrix R (extrinsische Kameraparameter)
+              - und Translationsvektor Tcm bestimmen (extrinsische Kameraparameter)
+        </aside>
+        </section>
+
+        <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Merkmalbasierte Tracking-Verfahren</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+                <li>Geometriebasiertes Tracking:</li>
+                  <ul>
+                      <li>Entstehen mithilfe von Kamerakalibrierung</li>
+                      <li>Mit Intrinsischen Kameraparameter entsteht Kalibrierungsmatrix</li>
+                  </ul>
+                <li>Weitere merkmalbasierte Tracking-Verfahren:</li>
+                  <ul>
+                      <li>Rotationsmatrix und Translationsvektor</li>
+                      <li>Entstehen mithilfe von Kalibrierungsmatrix, Abstand zwischen Eckpunkte und Orientierung der Marke</li>
+                  </ul>                  
+                <li>Merkmalsdetekoren</li>
+                  <ul>
+                    <li>SIFT (Scale Invariant Feature Transform)</li>
+                    <li>SURF (Speeded Up Robust Features)</li>
+                </ul>  
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - Merkmale im Kamerabild erkennen
+            - werden verglichen mit bekannten Modelle aus einer Datenbank 
+            - kann 2d- oder 3d-Modelle sein
+        </aside>
+        </section>
+
         <section style="text-align: left" data-auto-animate data-timing="0">
           <div class="grid-60-40" style="margin-top: 350px;">
             <div class="item-left titleslide" style="transform: translateY(35%);">
