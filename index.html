@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+
+<!--
+  Hi there
+  Just a warning: This code is a mess!
+  This is a presenation, not a business website.
+  The presentation is done "the hacky way" with as little time spent as possible.
+  Feel free to improve, but dont anger about the "coding style" :)
+-->
+
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VR/AR Kameratracking</title>
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script type="module" crossorigin src="/assets/index-1ZoFLozf.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-K6dROVDz.css">
+</head>
+
+<body>
+  <div id="navbar">
+    <div id="title" class="primary"><!-- will be replaced by JS titleChanger --></div>
+  </div>
+
+  <div id="bottom-navbar">
+    <a id="footername" href="https://jonasgoebel.net" target="_blank"
+      class="primary"><!-- will be replaced by JS titleChanger --></a>
+  </div>
+
+  <div id="references" class="primary"><!-- will be replaced by JS titleChanger --></div>
+
+  <div class="reveal">
+    <div class="slides">
+      <section style="text-align: left" data-timing="60">
+        <div class="grid-60-40" style="margin-top: 400px;">
+          <div class="item-left titleslide" style="transform: translateY(35%);">
+            <h1>Kameratracking</h1>
+
+            <div class="userinfo">
+              <div style="text-align: center left" class="green">
+                <i class=" fa-solid fa-user fa-xs"></i>
+                <span>Jonas Göbel, Omar Schure</span>
+              </div>
+              <div style="text-align: center left;" class="green">
+                <i class=" fa-solid fa-briefcase fa-xs"></i>
+                <span>VR/AR</span>
+              </div>
+              <div style="text-align: center left;" class="green">
+                <i class=" fa-solid fa-calendar fa-xs"></i>
+                <span>03.05.2025</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <img src="/assets/hs-fulda-smalltree-C8HRCSgf.svg" style="position: absolute; right: 0px; bottom: -400px; height: 800px">
+
+        <aside class="notes" data-markdown>
+         - Notizen hier rein
+        </aside>
+      </section>
+
+      <section class="center">
+        <h3><span class="green">Ziel:</span></h3>
+        <p>relative Position von Objekten zur Kamera <br><span class="green">(extrinsische Parameter)</span> bestimmen</p>
+        <p></p>
+        <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
+        <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+      </section>
+
+      <section class="center">
+        <h3 style="margin-bottom: 50px;"><span class="green">Kernentscheidungen:</span></h3>
+        <p>🏘️ Inside-Out oder Outside-In?</p>
+        <p>📍 Marker oder keine Marker?</p>
+        <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
+        <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+      </section>
+
+      <!-- <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Kernentscheidungen</h3>
+          </div>
+          <div class="item-left">
+          </div>
+
+          <div class="item-right">
+            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+              <li>📍 Marker oder keine Marker?</li>
+              <li>⏳ Inside Out oder Outside in?</li>
+            </ul>
+          </div>
+        </div>
+      </section> -->
+
+      <section data-auto-animate>
+        <div class="grid-60-40">
+          <div class="item-header" style="position: relative; display: inline-block;">
+            <h3 style="position: relative; display: inline-block;">Inside-Out</h3>
+            <h3 style="position: relative; display: inline-block;">&nbsp;/&nbsp;</h3>
+            <h3 style="position: relative; display: inline-block;">Outside-In</h3>
+          </div>
+
+          <div class="item-main">
+            <img src="/assets/inside-out-D93YB9pr.png" alt="inside-out" height="700px" class="round-corners" style="padding: 10px; background: white;">
+          </div>
+        </div>
+      </section>
+
+      <section data-auto-animate>
+        <div class="grid-50-50">
+          <div class="item-header">
+            <!-- <h3>Inside-Out / Outside-In</h3> -->
+          </div>
+
+          <div class="item-left">
+            <h3 style="margin-bottom: 75px;">Inside-Out</h3>
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <li>Kameras an Personen
+                <ul style="margin-left: 75px;">
+                  <li>schwer</li>
+                  <li>schränken Bewegung ein</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div class="item-right">
+            <h3 style="margin-bottom: 75px;">Outside-In</h3>
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <li>Kameras im Raum
+                <ul style="margin-left: 75px;">
+                  <li>Freie Bewegung</li>
+                </ul>
+              </li>
+              <li>💸 viele Kameras benötigt</li>
+            </ul>
+          </div>
+        </div>
+
+        <img src="/assets/inside-out-D93YB9pr.png" alt="inside-out" height="300px" class="round-corners" style="padding: 10px; background: white; margin-top: 200px;">
+      </section>
+
+      <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Markenbasierte Verfahren</h3>
+          </div>
+
+          <div class="item-left">
+            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+              <li>📍 klar definierte Marker</li>
+              <li>📍 Schwellwertfilter</li>
+              <li>📍 aktive / passive Marken</li>
+            </ul>
+          </div>
+
+          <div class="item-right">
+             <img src="/assets/motion-capture-Cbi-HN1y.png" alt="motion-capture" class="round-corners" height="500px" style="position: absolute; top: 300px; right: 0px;" />
+          </div>
+          
+        </div>
+
+        <img src="/assets/playstation-move-DwX4Jeu7.png" alt="ps move" height="700px" class="fragment fade-up" style="position: absolute; bottom: -575px; left: 100px;" />
+        <img src="/assets/nintendo-wii-BHuDnuRt.png" alt="nintendo wii" height="500px" class="fragment fade-up" style="position: absolute; bottom: -575px; left: 1000px;" />
+
+        <aside class="notes" data-markdown>
+          - Typ: Passive Marken
+          - Beispiel für Outside-In: Playstation Move
+          - Beispiel für Inside-Out: Nintendo Wii
+        </aside>
+      </section>
+
+      <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Schwarzweißmarken</h3>
+          </div>
+
+          <div class="item-left">
+            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+              <li>📍 passive Marken</li>
+              <li>📍 vordefinierte Muster + Größe</li>
+              <li>📍 Positionsbestimmung durch Größe + Aufnahmewinkel</li>
+            </ul>
+          </div>
+
+          <div class="item-right">
+            <img src="/assets/ar-marks-DR9WFFFI.png" alt="ar-marks" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 300px; right: 0px;">
+            <img src="/assets/found-mark-DEP2x-mj.png" alt="found-mark" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 500px; right: 0px;">
+          </div>
+        </div>
+
+        <aside class="notes" data-markdown>
+         - Wie die Positionsbestimmung funktioniert zeigt Omar
+        </aside>
+      </section>
+
+      <!-- <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Gliederung</h3>
+          </div>
+
+          <div class="item-left">
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <li>Intrinsische und Extrinsische Kameraparameter</li>
+              <li>Merkmalbasierte Tracking-Verfahren</li>
+              <li>Visual SLAM-Verfahren</li>
+              <li>Hybride Tracking-Techniken</li>
+              <li>Tracking der Microsoft Hololens</li>
+            </ul>
+          </div>
+        </div>
+      </section>-->
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Intrinsische und Extrinsische Kameraparameter</h3>
+            </div>
+            <div class="item-right">
+              <img src="/assets/Kameraparameter-B_TcYvGe.png" alt="Kameraparameter" height="450px" class="round-corners" style="margin-top: 100px;">
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none;">
+                <li>Berechnung der Pose der Marke im Verhältnis zur Kamera</li>
+                <li>Intrinsische Kameraparameter:</li>
+                  <ul>
+                      <li>Entstehen mithilfe von Kamerakalibrierung</li>
+                      <li>Mit Intrinsischen Kameraparameter entsteht Kalibrierungsmatrix</li>
+                  </ul>
+                <li>Extrinsische Kameraparameter:</li>
+                  <ul>
+                      <li>Rotationsmatrix und Translationsvektor</li>
+                      <li>Entstehen mithilfe von Kalibrierungsmatrix, Abstand zwischen Eckpunkte und Orientierung der Marke</li>
+                  </ul>
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+            - Marken verschiedene Arten
+              - Muster (AR/VR, Robotik, Kalibrierung verwendet)
+                - AprilTag
+                - ArUco
+              - Natürliche
+                - Ecken, Kanten, Texturen
+              - Farbmarker
+                - Farbige Bälle oder Aufkleber
+            - Intrinsische Kameraparameter:
+              - Kalibrierungsmatrix -> wird die Abbildung der Kamerakoordinaten auf die Bildebene bestimmt
+              - Bildebene -> das 2D Bild
+            - Extrinsische Kameraparameter
+              - mithilfe von Kalibrierungsmatrix K, bekannten Abstands zwischen Eckpunkte, Berücksichtigung der aufgrund der Markenausrichtung bekannten orientierung
+              - lassen sich 3x3 Rotationsmatrix R (extrinsische Kameraparameter)
+              - und Translationsvektor Tcm bestimmen (extrinsische Kameraparameter)
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Merkmalbasierte Tracking-Verfahren</h3>
+            </div>
+            <div class="item-right">
+              <img src="/assets/SIFT-e71OGipU.jpg" alt="SIFT" height="425px" class="round-corners" style="margin-top: 150px; margin-right: 10px; max-width: 1000px !important;">
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+                <li>Geometriebasiertes Tracking:</li>
+                  <ul>
+                      <li>Aus Kamerabild werden Merkmale extrahiert (Kanten und/oder Eckpunkte)</li>
+                      <li>Vorangegangene Bilder werden aus vorherigen erreichneten Transformation erstellt</li>
+                  </ul>
+                <li>Weitere merkmalbasierte Tracking-Verfahren:</li>
+                  <ul>
+                      <li>Visuelle Merkmale (Features) mithilfe von Merkmalsdetektoren erkennen</li>
+                      <li>Vergleich mit 2D- oder 3D-Geometrie</li>
+                      <li>Ausreißer mithilfe von RANSAC-Verfahren aussortiert</li>
+                  </ul>                  
+                <li>Merkmalsdetekoren:</li>
+                  <ul>
+                    <li>SIFT (Scale Invariant Feature Transform)</li>
+                    <li>SURF (Speeded Up Robust Features)</li>
+                </ul>  
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - Allgemein
+            - Merkmale im Kamerabild erkennen
+              - werden verglichen mit bekannten Modelle aus einer Datenbank 
+              - kann 2d- oder 3d-Modelle sein
+          - Geometriebasiertes Tracking
+            - Vorangegangene Bilder werden aus vorherigen erreichneten Transformation erstellt
+            - Vergleich Würfel -> mehrere gültige Posen für gleiches Kamerabild -> Merkmale nicht mehr eindeutig
+            - daher korrekte Initialisierung wichtig
+            - funktioniert gut bei gleichförmigen geometrischen Formen
+          - Weitere merkmalbasierte Tracking-Verfahren:
+            - visuelle Merkmale (Features) lassen sich von menschlicher Betrachtung nur schwer erkennen
+            - diese werden mithilfe von Merkmalsdetektoren entdeckt
+            - individuelle Beschreibung (description) (meist als Vektor dargestellt) wird erstellt -> werden verglichen mit 2d oder 2d Geometrie verglichen
+            - RANSAC-Verfahren -> zufällig "Funktionen/Modelle" erstellen die möglichst viele Punkte beinhalten
+          - Merkmalsdetekoren -> Algos um description zu erstellen
+            - SIFT 
+            - SURF 
+
+          - kombinierte Verwendung von Farbkameras und Tiefenkameras
+            - RGBD-Kmaeras -> verwenden zur Tiefenerkennung ein mit Infrarot projiziertes Muster oder ein Laufzeitverfahren
+              - bei denen die Laufzeit des reflektierten Lichts bestimmt wird
+              - bekannt durch Kinect geworden
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Visual SLAM-Verfahren</h3>
+            </div>
+            <div class="item-right">              
+             <img src="/assets/Visuel_SLAM_Camera-DxidJqlM.png" alt="Team" height="450px" class="round-corners" style="margin-top: 100px;">
+              <a href="https://www.youtube.com/watch?v=9cPqbtiGWKM&ab_channel=Dr.Jimmy%27sFamily" target="_blank"><span class="green">Visual SLAM Beispiel</span></a>             
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none;">
+                <li>Hauptsächlich Kameras verwendet</li>
+                <li>Tiefeninformation von 3D Kameras genutzt (Kinect, Intel RealSense)</li>
+                <li>Anfangs alles Unbekannt</li>
+                <li>Karte wird erzeugt und mit Bewegung der Kamera verbessert</li>    
+                <li>Dynamische Objekte müssen herausgefiltert werden</li>    
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - die vorherigen Verfahren basieren auf **Computer Vision**
+          - SLAM            
+            - haben vorausgesetzt dass Marken, Bilder oder Objekte basierend auf ihren Merkmalen bekannt sind
+            - Unbekannte Umgebung, ohne Marken, Bilder oder Objekte oder Infos über Anordung der Kameras im Raum
+            - kommt aus Robotik
+            - Lidar werden verwendet (Laser Abstandssensor)
+          - in AR wird Visuel SLAM verwendet
+            - hauptsächlich Kameras eingesetzt
+            - Tiefeninformation (Kinect, Intel Realsense) genutzt
+            - Anfangs keine Karte -> auf Bewegung der Kamera wird Karte erzeugt
+            - Kamera Positon und Ausrichtung und die Merkmale werden immer wieder neu berechnet und eingeschätzt
+            - dynamische Objekte bringen Probleme -> müssen rausgefiltert werden
+            
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Hybride Tracking-Techniken</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <!-- @TODO falls du den Umbruch nicht willst: :) -->
+              <!-- <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none; width: 2000px"> -->
+              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none; width: 2000px">
+                <li>Kombinierte und unterschiedliche Tracking-Verfahren werden verwendet</li>
+                <li>Markenbasiertes Verfahren nur dann gut wenn Marken im Sichtfeld sind</li>
+                <li>Lagesensoren von Smartphone/Tablets verwendet</li>
+                <li>Kalman-Filter</li>       
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+            - bestimmte Tracking Verfahren funktionieren nur unter bestimmten Bedingungen gut
+            - Markenbasierter Ansatz -> kurzeitige Verdeckung der Marken bringt Probleme -> AR Illusion geht verloren
+            - Smartphone/Tablet werden Lagesensoren werden für die Verfahren -> Tranformationen/Rotationsmatritzen zur Verfügung gestellt
+              - Annahmen zu der Lage von Objekte die nicht mehr im Feld sind gemacht werden
+            - Vorhersage Algos
+              - Kalman-Filter
+                - je nachdem ob Rotation oder Position geschätzt werden soll -> kommen andere Kalman-Filter zum Einsatz
+                - andere Algos            
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Tracking der Microsoft Hololens</h3>
+            </div>
+            <div class="item-right">
+              <img src="/assets/Hololens-DCwDaBgS.jpg" alt="Hololens" height="500px" class="round-corners" style="margin-top: 100px;">
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none;">
+                <li>Verwendet SLAM-Ansatz</li>
+                <li>Vier Kameras (30 HZ) in Kombination mit einer IMU (1000 HZ)</li>
+                <li>Hochauflösende Frontkamera</li>
+                <li>Tiefenkamera (Gestensteuerung)</li>       
+                <li>Graph zur Lageschätzung (kein globales Koordinatensystem)</li>
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - Vier Kameras
+            - Blickfeld von ca. 180° stereoskopisch erfasst
+            - arbeiten mit geringen Bildwiederholrate (30 Hz) -> schnelle Kopfbewegungen -> nicht ohne merkliche latenz erfasst werden können
+            - zur Kompensation werden bei schnellen Bewegungen die Tracking-Daten mit denen einer IMU (Update-Rate 1000Hz) kombiniert
+              - erlaubt Berechnungen von Zwischenwerten zwischen den ermittelten Kameraposen mit 240 Hz 
+              - erlaubt einen Ausgleich von Farbverschiebungen (late-stage reprojection) aufgrund der farbsequenziellen Ausgabe     
+          - Graph zur Lageschätzung
+            - kein globales Koordinatensystem
+            - viele lokale Koordinatensysteme -> die über relative Posen verbunden sind
+            - Posen nicht da -> zerfällt der Graph in mehrere Teilgraphen
+            - Graph ist nicht zwingend global konsistent
+        </aside>
+      </section>
+
+      <section style="text-align: left" data-auto-animate data-timing="0">
+        <div class="grid-60-40" style="margin-top: 350px;">
+          <div class="item-left titleslide" style="transform: translateY(35%);">
+            <h1 style="color: #72bf44 !important">Das wars!</h1>
+            <h4 style="color: #72bf44 !important">Gibt es noch fragen?</h4>
+          </div>
+        </div>
+
+        <img src="/assets/hs-fulda-smalltree-C8HRCSgf.svg" style="position: absolute; right: 0px; bottom: -400px; height: 800px">
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
+  
+      <section data-visibility="uncounted" data-timing="0">
+        <div class="grid-hosting">
+          <div class="item-headspace">&nbsp;</div>
+          <div class="item-header">
+            <h2 data-id="title">Bildquellen</h2>
+          </div>
+
+          <div class="item-main" style="margin-top: -150px;">
+            <table id="sourcesTable" style="margin-left: 300px">
+              <!-- <tr>
+                <td>Skizzen: </td>
+                <td>Jonas Göbel</td>
+              </tr> -->
+              <!-- <tr>
+                <td>Illustrationen: </td>
+                <td><a href="https://undraw.co" target="_blank" style="color: #72bf44 !important">https://undraw.co</a></td>
+              </tr> -->
+              <tr>
+                <td style="width: 200px">Logo HS Fulda: </td>
+                <td><a href="https://www.hs-fulda.de/" target="_blank" style="color: #72bf44 !important">https://www.hs-fulda.de</a></td>
+              </tr>
+              <!-- <tr>
+                <td>Icons: </td>
+                <td><a href="https://fontawesome.com" target="_blank" style="color: #72bf44 !important">https://fontawesome.com</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a href="https://icon-icons.com" target="_blank" style="color: #72bf44 !important">https://icon-icons.com</a></td>
+              </tr> -->
+              <tr>
+                <td>[1]</td>
+                <td><a href="https://www.mdpi.com/1424-8220/21/5/1622" target="_blank" style="color: #72bf44 !important">https://www.mdpi.com/1424-8220/21/5/1622</a></td>
+              </tr>
+              <tr>
+                <td>[2]</td>
+                <td><a href="https://farm5.static.flickr.com/4039/4423031462_c7f959bd98.jpg" target="_blank" style="color: #72bf44 !important">https://farm5.static.flickr.com/4039/4423031462_c7f959bd98.jpg</a></td>
+              </tr>
+              <tr>
+                <td>[3]</td>
+                <td><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wiimote-in-Hands.jpg/1024px-Wiimote-in-Hands.jpg" target="_blank" style="color: #72bf44 !important">https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wiimote-in-Hands.jpg/1024px-Wiimote-in-Hands.jpg</a></td>
+              </tr>
+              <tr>
+                <td>[4]</td>
+                <td><a href="https://de.fiverr.com/aswinbaskaran/motion-capture-of-anything" target="_blank" style="color: #72bf44 !important">https://de.fiverr.com/aswinbaskaran/motion-capture-of-anything</a></td>
+              </tr>
+              <tr>
+                <td>[5]</td>
+                <td><a href="https://doi.org/10.1007/978-3-642-28903-3" target="_blank" style="color: #72bf44 !important">Dörner, Ralf & Broll, Wolfgang & Grimm, Paul & Jung, Bernhard. (2013). Virtual und Augmented Reality (VR/AR) - Grundlagen und Methoden der Virtuellen und Augmentierten Realität. 10.1007/978-3-642-28903-3. </a></td>
+              </tr>
+              <tr>
+                <td>[6]</td>
+                <td><a href="https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Bachelor-theses/2016/struempel/Bachelor-Struempel.pdf" target="_blank" style="color: #72bf44 !important">https://www.mi.fu-berlin.de/inf/groups/ag-ki/Theses/Completed-theses/Bachelor-theses/2016/struempel/Bachelor-Struempel.pdf</a></td>
+              </tr>
+              <tr>
+                <td>[7]</td>
+                <td><a href="https://records.sigmm.org/wp-content/uploads/2020/01/openvslam_image8.png" target="_blank" style="color: #72bf44 !important">https://records.sigmm.org/wp-content/uploads/2020/01/openvslam_image8.png</a></td>
+              </tr>
+              <tr>
+                <td>[8]</td>
+                <td><a href="https://www.codeproject.com/KB/recipes/619039/SIFT.JPG" target="_blank" style="color: #72bf44 !important">https://www.codeproject.com/KB/recipes/619039/SIFT.JPG</a></td>
+              </tr>
+              <tr>
+                <td>[9]</td>
+                <td><a href="https://www.pad4rent.de/wp-content/uploads/eventworx/media/67ef82ec1a891a6ed65d364a.jpg" target="_blank" style="color: #72bf44 !important">https://www.pad4rent.de/wp-content/uploads/eventworx/media/67ef82ec1a891a6ed65d364a.jpg</a></td>
+              </tr>              
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</body>
+</html>
