@@ -167,6 +167,10 @@ ul.li-left>li {
   border-bottom: 0px;
 }
 
+#sourcesTable>tbody>tr>td:first-child {
+  text-align: right;
+}
+
 .mlarrow {
   width: 100px;
   margin-top: 50px !important;
@@ -294,4 +298,15 @@ ul.li-left>li {
       width: 90%;
     }
   }
+}
+
+/*
+fix progress bar + arrow colors
+*/
+.progress {
+    color: $linkColor !important;
+}
+
+.controls-arrow {
+  color: $linkColor !important;
 }
