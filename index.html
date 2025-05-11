@@ -37,9 +37,9 @@
   <div class="reveal">
     <div class="slides">
       <section style="text-align: left" data-timing="60">
-        <div class="grid-60-40" style="margin-top: 250px;">
+        <div class="grid-60-40" style="margin-top: 400px;">
           <div class="item-left titleslide" style="transform: translateY(35%);">
-            <h3>Kameratracking</h3>
+            <h1>Kameratracking</h1>
 
             <div class="userinfo">
               <div style="text-align: center left" class="green">
@@ -65,13 +65,28 @@
         </aside>
       </section>
 
-      <section>
+      <section class="center">
+        <h3><span class="green">Ziel:</span></h3>
+        <p>relative Position von Objekten zur Kamera <br><span class="green">(extrinsische Parameter)</span> bestimmen</p>
+        <p></p>
+        <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
+        <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+      </section>
+
+      <section class="center">
+        <h3 style="margin-bottom: 50px;"><span class="green">Kernentscheidungen:</span></h3>
+        <p>🏘️ Inside-Out oder Outside-In?</p>
+        <p>📍 Marker oder keine Marker?</p>
+        <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
+        <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+      </section>
+
+      <!-- <section>
         <div class="grid-60-40">
           <div class="item-header">
             <h3>Kernentscheidungen</h3>
           </div>
           <div class="item-left">
-            <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
           </div>
 
           <div class="item-right">
@@ -81,179 +96,179 @@
             </ul>
           </div>
         </div>
+      </section> -->
+
+      <section data-auto-animate>
+        <div class="grid-60-40">
+          <div class="item-header" style="position: relative; display: inline-block;">
+            <h3 style="position: relative; display: inline-block;">Inside-Out</h3>
+            <h3 style="position: relative; display: inline-block;">&nbsp;/&nbsp;</h3>
+            <h3 style="position: relative; display: inline-block;">Outside-In</h3>
+          </div>
+
+          <div class="item-main">
+            <img src="/img/inside-out.png" alt="inside-out" height="700px" class="round-corners" style="padding: 10px; background: white;">
+          </div>
+        </div>
       </section>
 
-        <section>
-          <div class="grid-60-40">
-            <div class="item-header">
-              <h3>Markenbasierte Verfahren</h3>
-            </div>
-            <div class="item-left">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
-            </div>
-
-            <div class="item-right">
-              <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-                <li>📍 1</li>
-                <li>📍 2</li>
-                <li>📍 3</li>
-              </ul>
-            </div>
+      <section data-auto-animate>
+        <div class="grid-50-50">
+          <div class="item-header">
+            <!-- <h3>Inside-Out / Outside-In</h3> -->
           </div>
-        </section>
 
-        <section>
-          <div class="grid-60-40">
-            <div class="item-header">
-              <h3>Verfahren ohne Marker</h3>
-            </div>
-            <div class="item-left">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
-            </div>
-
-            <div class="item-right">
-              <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-                <li>📍 1</li>
-                <li>📍 2</li>
-                <li>📍 3</li>
-              </ul>
-            </div>
+          <div class="item-left">
+            <h3 style="margin-bottom: 75px;">Inside-Out</h3>
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <li>Kameras an Personen
+                <ul style="margin-left: 75px;">
+                  <li>schwer</li>
+                  <li>schränken Bewegung ein</li>
+                </ul>
+              </li>
+            </ul>
           </div>
-        </section>
-
-        <section>
-          <div class="grid-60-40">
-            <div class="item-header">
-              <h3>Outside-In Verfahren</h3>
-            </div>
-
-            <div class="item-left">
-              <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-                <li>📍 1</li>
-                <li>📍 2</li>
-                <li>📍 3</li>
-              </ul>
-            </div>
-            <div class="item-right">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
-            </div>
+          <div class="item-right">
+            <h3 style="margin-bottom: 75px;">Outside-In</h3>
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <li>Kameras im Raum
+                <ul style="margin-left: 75px;">
+                  <li>Freie Bewegung</li>
+                </ul>
+              </li>
+              <li>💸 viele Kameras benötigt</li>
+            </ul>
           </div>
-        </section>
+        </div>
 
-        <section>
-          <div class="grid-60-40">
-            <div class="item-header">
-              <h3>Inside-Out Verfahren</h3>
-            </div>
-            <div class="item-left">
-              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
-            </div>
+        <img src="/img/inside-out.png" alt="inside-out" height="300px" class="round-corners" style="padding: 10px; background: white; margin-top: 200px;">
+      </section>
 
-            <div class="item-right">
-              <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-                <li>📍 1</li>
-                <li>📍 2</li>
-                <li>📍 3</li>
-              </ul>
-            </div>
+      <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Markenbasierte Verfahren</h3>
           </div>
-        </section>
 
-        <section>
-          <span style="font-size: 100px">Tag 5</span>
-          <span>(Mittwoch)</span>
-          <h4>Mostnica-Schlucht</h4>
-
-          <div class="grid-60-40">
-            <div class="item-right">
-              <img src="/img/mostnica-schlucht.jpg" alt="Team" height="750px" class="round-corners">
-            </div>
-
-            <div class="item-left">
-              <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-                <li>📍 Mostnica Schlucht<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(leicht zugängliche Schlucht mit türkisblauem Wasser)</li>
-                <br>
-                <li>🌉 Spaziergang entlang der Schlucht</li>
-                <li>📸 Schöne Fotospots</li>
-                <li>🌲 Entspannen in der Natur</li>
-              </ul>
-            </div>
+          <div class="item-left">
+            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+              <li>📍 klar definierte Marker</li>
+              <li>📍 Schwellwertfilter</li>
+              <li>📍 aktive / passive Marken</li>
+            </ul>
           </div>
-        </section>
 
-        <section>
-          <!-- <h1>Tag 7</h1> -->
-          <!-- <h4>Freier Tag & Erkundung</h4> -->
-          <span style="font-size: 100px">Tag 8</span>
-          <span>(Samstag)</span>
-          <h4>Freier Tag & Erkundung</h4>
-
-          <div class="grid-60-40">
-            <div class="item-left">
-              <img src="/img/see.jpg" alt="Team" height="700px" class="round-corners">
-            </div>
-
-            <div class="item-right">
-              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
-                <li>🌄 Letzte Wanderungen & Natur genießen</li>
-                <li>🚣‍♂️ Nochmals den See erkunden</li>
-                <li>🛍️ Souvenirs kaufen</li>
-                <li>🍽️ Letztes gemeinsames Abendessen</li>
-              </ul>
-            </div>
+          <div class="item-right">
+             <img src="/img/motion-capture.png" alt="motion-capture" class="round-corners" height="500px" style="position: absolute; top: 300px; right: 0px;" />
           </div>
-        </section>
+          
+        </div>
 
-        <section style="text-align: left" data-auto-animate data-timing="0">
-          <div class="grid-60-40" style="margin-top: 350px;">
-            <div class="item-left titleslide" style="transform: translateY(35%);">
-              <h1 style="color: #72bf44 !important">Das wars!</h1>
-              <h4 style="color: #72bf44 !important">Gibt es noch fragen?</h4>
-            </div>
+        <img src="/img/playstation-move.png" alt="ps move" height="700px" class="fragment fade-up" style="position: absolute; bottom: -575px; left: 100px;" />
+        <img src="/img/nintendo-wii.png" alt="nintendo wii" height="500px" class="fragment fade-up" style="position: absolute; bottom: -575px; left: 1000px;" />
+
+        <aside class="notes" data-markdown>
+          - Typ: Passive Marken
+          - Beispiel für Outside-In: Playstation Move
+          - Beispiel für Inside-Out: Nintendo Wii
+        </aside>
+      </section>
+
+      <section>
+        <div class="grid-60-40">
+          <div class="item-header">
+            <h3>Schwarzweißmarken</h3>
           </div>
+
+          <div class="item-left">
+            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+              <li>📍 passive Marken</li>
+              <li>📍 vordefinierte Muster + Größe</li>
+              <li>📍 Positionsbestimmung durch Größe + Aufnahmewinkel</li>
+            </ul>
+          </div>
+
+          <div class="item-right">
+            <img src="/img/ar-marks.png" alt="ar-marks" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 300px; right: 0px;">
+            <img src="/img/found-mark.png" alt="found-mark" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 500px; right: 0px;">
+          </div>
+        </div>
+
+        <aside class="notes" data-markdown>
+         - Wie die Positionsbestimmung funktioniert zeigt Omar
+        </aside>
+      </section>
+
+      <section style="text-align: left" data-auto-animate data-timing="0">
+        <div class="grid-60-40" style="margin-top: 350px;">
+          <div class="item-left titleslide" style="transform: translateY(35%);">
+            <h1 style="color: #72bf44 !important">Das wars!</h1>
+            <h4 style="color: #72bf44 !important">Gibt es noch fragen?</h4>
+          </div>
+        </div>
+
+        <img src="/img/hs-fulda-smalltree.svg" style="position: absolute; right: 0px; bottom: -400px; height: 800px">
+
+        <aside class="notes" data-markdown>
+        </aside>
+      </section>
   
-          <img src="/img/hs-fulda-smalltree.svg" style="position: absolute; right: 0px; bottom: -400px; height: 800px">
-  
-          <aside class="notes" data-markdown>
-          </aside>
-        </section>
-  
-        <section data-visibility="uncounted" data-timing="0">
-          <div class="grid-hosting">
-            <div class="item-headspace">&nbsp;</div>
-            <div class="item-header">
-              <h2 data-id="title">Bildquellen</h2>
-            </div>
-  
-            <div class="item-main" style="margin-top: -150px;">
-              <table id="sourcesTable" style="margin-right: 650px">
-                <tr>
-                  <td>Skizzen: </td>
-                  <td>Jonas Göbel</td>
-                </tr>
-                <tr>
-                  <td>Illustrationen: </td>
-                  <td><a href="https://undraw.co" target="_blank" style="color: #72bf44 !important">https://undraw.co</a></td>
-                </tr>
-                <tr>
-                  <td>Logo HS Fulda: </td>
-                  <td><a href="https://www.hs-fulda.de/" target="_blank" style="color: #72bf44 !important">https://www.hs-fulda.de</a></td>
-                </tr>
-                <tr>
-                  <td>Icons: </td>
-                  <td><a href="https://fontawesome.com" target="_blank" style="color: #72bf44 !important">https://fontawesome.com</a></td>
-                </tr>
-                <tr>
-                  <td></td>
-                  <td><a href="https://icon-icons.com" target="_blank" style="color: #72bf44 !important">https://icon-icons.com</a></td>
-                </tr>
-              </table>
-            </div>
+      <section data-visibility="uncounted" data-timing="0">
+        <div class="grid-hosting">
+          <div class="item-headspace">&nbsp;</div>
+          <div class="item-header">
+            <h2 data-id="title">Bildquellen</h2>
           </div>
-        </section>
-      </div>
+
+          <div class="item-main" style="margin-top: -150px;">
+            <table id="sourcesTable" style="margin-left: 300px">
+              <!-- <tr>
+                <td>Skizzen: </td>
+                <td>Jonas Göbel</td>
+              </tr> -->
+              <!-- <tr>
+                <td>Illustrationen: </td>
+                <td><a href="https://undraw.co" target="_blank" style="color: #72bf44 !important">https://undraw.co</a></td>
+              </tr> -->
+              <tr>
+                <td style="width: 200px">Logo HS Fulda: </td>
+                <td><a href="https://www.hs-fulda.de/" target="_blank" style="color: #72bf44 !important">https://www.hs-fulda.de</a></td>
+              </tr>
+              <!-- <tr>
+                <td>Icons: </td>
+                <td><a href="https://fontawesome.com" target="_blank" style="color: #72bf44 !important">https://fontawesome.com</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a href="https://icon-icons.com" target="_blank" style="color: #72bf44 !important">https://icon-icons.com</a></td>
+              </tr> -->
+              <tr>
+                <td>[1]</td>
+                <td><a href="https://www.mdpi.com/1424-8220/21/5/1622" target="_blank" style="color: #72bf44 !important">https://www.mdpi.com/1424-8220/21/5/1622</a></td>
+              </tr>
+              <tr>
+                <td>[2]</td>
+                <td><a href="https://farm5.static.flickr.com/4039/4423031462_c7f959bd98.jpg" target="_blank" style="color: #72bf44 !important">https://farm5.static.flickr.com/4039/4423031462_c7f959bd98.jpg</a></td>
+              </tr>
+              <tr>
+                <td>[3]</td>
+                <td><a href="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wiimote-in-Hands.jpg/1024px-Wiimote-in-Hands.jpg" target="_blank" style="color: #72bf44 !important">https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Wiimote-in-Hands.jpg/1024px-Wiimote-in-Hands.jpg</a></td>
+              </tr>
+              <tr>
+                <td>[4]</td>
+                <td><a href="https://de.fiverr.com/aswinbaskaran/motion-capture-of-anything" target="_blank" style="color: #72bf44 !important">https://de.fiverr.com/aswinbaskaran/motion-capture-of-anything</a></td>
+              </tr>
+              <tr>
+                <td>[5]</td>
+                <td><a href="https://doi.org/10.1007/978-3-642-28903-3" target="_blank" style="color: #72bf44 !important">Dörner, Ralf & Broll, Wolfgang & Grimm, Paul & Jung, Bernhard. (2013). Virtual und Augmented Reality (VR/AR) - Grundlagen und Methoden der Virtuellen und Augmentierten Realität. 10.1007/978-3-642-28903-3. </a></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </section>
     </div>
-    <script type="module" src="/js/index.js"></script>
+  </div>
+  <script type="module" src="/js/index.js"></script>
 </body>
-
 </html>
