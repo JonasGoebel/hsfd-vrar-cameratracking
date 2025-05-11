@@ -210,7 +210,7 @@
           </div>
 
           <div class="item-left">
-            <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+            <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
               <li>Intrinsische und Extrinsische Kameraparameter</li>
               <li>Merkmalbasierte Tracking-Verfahren</li>
                 <ul>
@@ -237,7 +237,7 @@
             </div>
 
             <div class="item-left">
-              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
                 <li>Berechnung der Pose der Marke im Verhältnis zur Kamera</li>
                 <li>Intrinsische Kameraparameter:</li>
                   <ul>
@@ -282,18 +282,19 @@
             </div>
 
             <div class="item-left">
-              <ul class="space-li" style="margin-top: 150px; margin-left: -50px; list-style-type: none;">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
                 <li>Geometriebasiertes Tracking:</li>
                   <ul>
-                      <li>Entstehen mithilfe von Kamerakalibrierung</li>
-                      <li>Mit Intrinsischen Kameraparameter entsteht Kalibrierungsmatrix</li>
+                      <li>Aus Kamerabild werden Merkmale extrahiert (Kanten und/oder Eckpunkte)</li>
+                      <li>Vorangegangene Bilder werden aus vorherigen erreichneten Transformation erstellt</li>
                   </ul>
                 <li>Weitere merkmalbasierte Tracking-Verfahren:</li>
                   <ul>
-                      <li>Rotationsmatrix und Translationsvektor</li>
-                      <li>Entstehen mithilfe von Kalibrierungsmatrix, Abstand zwischen Eckpunkte und Orientierung der Marke</li>
+                      <li>Visuelle Merkmale (Features) mithilfe von Merkmalsdetektoren erkennen</li>
+                      <li>Vergleich mit 2D- oder 3D-Geometrie</li>
+                      <li>Ausreißer mithilfe von RANSAC-Verfahren aussortiert</li>
                   </ul>                  
-                <li>Merkmalsdetekoren</li>
+                <li>Merkmalsdetekoren:</li>
                   <ul>
                     <li>SIFT (Scale Invariant Feature Transform)</li>
                     <li>SURF (Speeded Up Robust Features)</li>
@@ -303,9 +304,126 @@
             
           </div>
           <aside class="notes" data-markdown>
-          - Merkmale im Kamerabild erkennen
-            - werden verglichen mit bekannten Modelle aus einer Datenbank 
-            - kann 2d- oder 3d-Modelle sein
+          - Allgemein
+            - Merkmale im Kamerabild erkennen
+              - werden verglichen mit bekannten Modelle aus einer Datenbank 
+              - kann 2d- oder 3d-Modelle sein
+          - Geometriebasiertes Tracking
+            - Vorangegangene Bilder werden aus vorherigen erreichneten Transformation erstellt
+            - Vergleich Würfel -> mehrere gültige Posen für gleiches Kamerabild -> Merkmale nicht mehr eindeutig
+            - daher korrekte Initialisierung wichtig
+            - funktioniert gut bei gleichförmigen geometrischen Formen
+          - Weitere merkmalbasierte Tracking-Verfahren:
+            - visuelle Merkmale (Features) lassen sich von menschlicher Betrachtung nur schwer erkennen
+            - diese werden mithilfe von Merkmalsdetektoren entdeckt
+            - individuelle Beschreibung (description) (meist als Vektor dargestellt) wird erstellt -> werden verglichen mit 2d oder 2d Geometrie verglichen
+            - RANSAC-Verfahren -> zufällig "Funktionen/Modelle" erstellen die möglichst viele Punkte beinhalten
+          - Merkmalsdetekoren -> Algos um description zu erstellen
+            - SIFT 
+            - SURF 
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Visual SLAM-Verfahren</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+                <li>Hauptsächlich Kameras verwendet</li>
+                <li>Tiefeninformation von 3D Kameras genutzt (Kinect, Intel RealSense)</li>
+                <li>Anfangs alles Unbekannt</li>
+                <li>Karte wird erzeugt und mit Bewegung der Kamera verbessert</li>    
+                <li>Dynamische Objekte müssen herausgefiltert werden</li>    
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - die vorherigen Verfahren basieren auf **Computer Vision**
+          - SLAM            
+            - haben vorausgesetzt dass Marken, Bilder oder Objekte basierend auf ihren Merkmalen bekannt sind
+            - Unbekannte Umgebung, ohne Marken, Bilder oder Objekte oder Infos über Anordung der Kameras im Raum
+            - kommt aus Robotik
+            - Lidar werden verwendet (Laser Abstandssensor)
+          - in AR wird Visuel SLAM verwendet
+            - hauptsächlich Kameras eingesetzt
+            - Tiefeninformation (Kinect, Intel Realsense) genutzt
+            - Anfangs keine Karte -> auf Bewegung der Kamera wird Karte erzeugt
+            - Kamera Positon und Ausrichtung und die Merkmale werden immer wieder neu berechnet und eingeschätzt
+            - dynamische Objekte bringen Probleme -> müssen rausgefiltert werden
+            
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Hybride Tracking-Techniken</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+                <li>Kombinierte und unterschiedliche Tracking-Verfahren werden verwendet</li>
+                <li>Markenbasiertes Verfahren nur dann gut wenn Marken im Sichtfeld sind</li>
+                <li>Lagesensoren von Smartphone/Tablets verwendet</li>
+                <li>Kalman-Filter</li>       
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+            - bestimmte Tracking Verfahren funktionieren nur unter bestimmten Bedingungen gut
+            - Markenbasierter Ansatz -> kurzeitige Verdeckung der Marken bringt Probleme -> AR Illusion geht verloren
+            - Smartphone/Tablet werden Lagesensoren werden für die Verfahren -> Tranformationen/Rotationsmatritzen zur Verfügung gestellt
+              - Annahmen zu der Lage von Objekte die nicht mehr im Feld sind gemacht werden
+            - Vorhersage Algos
+              - Kalman-Filter
+                - je nachdem ob Rotation oder Position geschätzt werden soll -> kommen andere Kalman-Filter zum Einsatz
+                - andere Algos            
+        </aside>
+      </section>
+
+      <section>
+          <div class="grid-60-40">
+            <div class="item-header">
+              <h3>Tracking der Microsoft Hololens</h3>
+            </div>
+            <div class="item-right">
+              <!-- <img src="/img/maps-hinfahrt-1.png" alt="Team" height="700px" class="round-corners"> -->
+            </div>
+
+            <div class="item-left">
+              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+                <li>Verwendet SLAM-Ansatz</li>
+                <li>Vier Kameras (30 HZ) in Kombination mit einer IMU (1000 HZ)</li>
+                <li>Hochauflösende Frontkamera</li>
+                <li>Tiefenkamera (Gestensteuerung)</li>       
+                <li>Graph zur Lageschätzung genutzt (kein globales Koordinatensystem)</li>
+              </ul>
+            </div>
+            
+          </div>
+          <aside class="notes" data-markdown>
+          - Vier Kameras
+            - Blickfeld von ca. 180° stereoskopisch erfasst
+            - arbeiten mit geringen Bildwiederholrate (30 Hz) -> schnelle Kopfbewegungen -> nicht ohne merkliche latenz erfasst werden können
+            - zur Kompensation werden bei schnellen Bewegungen die Tracking-Daten mit denen einer IMU (Update-Rate 1000Hz) kombiniert
+              - erlaubt Berechnungen von Zwischenwerten zwischen den ermittelten Kameraposen mit 240 Hz 
+              - erlaubt einen Ausgleich von Farbverschiebungen (late-stage reprojection) aufgrund der farbsequenziellen Ausgabe     
+          - Graph zur Lageschätzung
+            - kein globales Koordinatensystem
+            - viele lokale Koordinatensysteme -> die über relative Posen verbunden sind
+            - Posen nicht da -> zerfällt der Graph in mehrere Teilgraphen
+            - Graph ist nicht zwingend global konsistent
         </aside>
       </section>
 
