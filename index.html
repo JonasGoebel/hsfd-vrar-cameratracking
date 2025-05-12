@@ -29,7 +29,7 @@
   </div>
 
   <div id="bottom-navbar">
-    <a id="footername" href="https://jonasgoebel.net" target="_blank"
+    <a id="footername" href="#" target="_blank"
       class="primary"><!-- will be replaced by JS titleChanger --></a>
   </div>
 
@@ -62,7 +62,7 @@
         <img src="/img/hs-fulda-smalltree.svg" style="position: absolute; right: 0px; bottom: -400px; height: 800px">
 
         <aside class="notes" data-markdown>
-         - Notizen hier rein
+         - Hallo und so
         </aside>
       </section>
 
@@ -72,32 +72,28 @@
         <p></p>
         <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
         <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+        <aside class="notes" data-markdown>
+        - Objekt oder Person
+        - Wo befinden die sich im Raum
+        - Wie bewegen die sich (z.B. Gelenke, Haltung, etc.)
+        </aside>
       </section>
 
       <section class="center">
         <h3 style="margin-bottom: 50px;"><span class="green">Kernentscheidungen:</span></h3>
         <p>🏘️ Inside-Out oder Outside-In?</p>
         <p>📍 Marker oder keine Marker?</p>
-        <!-- <p>Entwerfen Sie einen Algorithmus, der für einen<br> <span class="green">ungerichteten Graphen</span> den <span class="green">kürzesten Kreis</span> bestimmt.</p> -->
-        <!-- <p>Nutzen Sie dazu die <span class="green">Breitensuche</span> <br>und geben Sie die <span class="green">Laufzeit</span> des Algorithmus an.</p> -->
+
+        <aside class="notes" data-markdown>
+          - 2 grundlegende Entscheidungen
+          - je nachdem welches Objekt aufgenommen werden soll
+            - Größe,
+            - Beweglichkeit
+          - wie viele Personen
+          - "es kommt drauf an"
+          - wir gehen auf die Verfahren nacheinander ein
+        </aside>
       </section>
-
-      <!-- <section>
-        <div class="grid-60-40">
-          <div class="item-header">
-            <h3>Kernentscheidungen</h3>
-          </div>
-          <div class="item-left">
-          </div>
-
-          <div class="item-right">
-            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
-              <li>📍 Marker oder keine Marker?</li>
-              <li>⏳ Inside Out oder Outside in?</li>
-            </ul>
-          </div>
-        </div>
-      </section> -->
 
       <section data-auto-animate>
         <div class="grid-60-40">
@@ -111,21 +107,26 @@
             <img src="/img/inside-out.png" alt="inside-out" height="700px" class="round-corners" style="padding: 10px; background: white;">
           </div>
         </div>
+
+        <aside class="notes" data-markdown>
+          - Inside-Out: Kamera fest an Peron / Objekt
+            - bewegen sich mit
+          - Outside-In: Kameras an fester Position
+            - Scannen bewegendes Objekt
+        </aside>
       </section>
 
       <section data-auto-animate>
         <div class="grid-50-50">
-          <div class="item-header">
-            <!-- <h3>Inside-Out / Outside-In</h3> -->
-          </div>
+          <div class="item-header"></div>
 
           <div class="item-left">
             <h3 style="margin-bottom: 75px;">Inside-Out</h3>
             <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
-              <li>Kameras an Personen
+              <li>Kamera(s) an Personen
                 <ul style="margin-left: 75px;">
-                  <li>schwer</li>
-                  <li>schränken Bewegung ein</li>
+                  <li>zusätzliches Gewicht</li>
+                  <li>schränkt Bewegung ein</li>
                 </ul>
               </li>
             </ul>
@@ -136,14 +137,27 @@
               <li>Kameras im Raum
                 <ul style="margin-left: 75px;">
                   <li>Freie Bewegung</li>
+                  <li>viele Kameras benötigt 💸</li>
                 </ul>
               </li>
-              <li>💸 viele Kameras benötigt</li>
             </ul>
           </div>
         </div>
 
-        <img src="/img/inside-out.png" alt="inside-out" height="300px" class="round-corners" style="padding: 10px; background: white; margin-top: 200px;">
+        <img src="/img/inside-out.png" alt="inside-out" height="400px" class="round-corners" style="padding: 10px; background: white; margin-top: 50px;">
+
+        <aside class="notes" data-markdown>
+          - Leute müssen Kameras beim Acting herumtragen
+            - fühlt sich unnatürlich an
+            - keine Freie Bewegung (Schwert schwingen mit Kamera vor dir...)
+            - Leichter für größere Bereiche
+          - Outside-In
+            - Kameras an festen Orten
+            - mehrere/viele Kameras notwendig
+            - Person kann aus Bereich rauslaufen
+            - Ungenauigkeit bei Entfernung zur Kamera
+            - Kameras müssen synchronisiert werden
+        </aside>
       </section>
 
       <section>
@@ -161,7 +175,7 @@
           </div>
 
           <div class="item-right">
-             <img src="/img/motion-capture.png" alt="motion-capture" class="round-corners" height="500px" style="position: absolute; top: 300px; right: 0px;" />
+             <img src="/img/motion-capture.png" alt="motion-capture" class="round-corners" height="600px" style="position: absolute; top: 300px; right: 150px;" />
           </div>
           
         </div>
@@ -170,9 +184,15 @@
         <img src="/img/nintendo-wii.png" alt="nintendo wii" height="500px" class="fragment fade-up" style="position: absolute; bottom: -575px; left: 1000px;" />
 
         <aside class="notes" data-markdown>
-          - Typ: Passive Marken
+          - aktive Marken leuchten
+          - passive Marken werden angeleuchtet / ohne Licht nutzbar
+          - Person rechts: Passive Marken
           - Beispiel für Outside-In: Playstation Move
+            - "Kopf" leuchtet -> mit Kamera leichter erkennbar
           - Beispiel für Inside-Out: Nintendo Wii
+            - Infrarot-Lichter in Sensorleiste
+            - "Kamera" in Fernbedienung
+              - findet die Lichter der Sensorleiste
         </aside>
       </section>
 
@@ -183,7 +203,7 @@
           </div>
 
           <div class="item-left">
-            <ul class="space-li" style="margin-top: 100px; margin-left: -50px; list-style-type: none;">
+            <ul class="space-li" style="margin-top: 100px; list-style-type: none;">
               <li>📍 passive Marken</li>
               <li>📍 vordefinierte Muster + Größe</li>
               <li>📍 Positionsbestimmung durch Größe + Aufnahmewinkel</li>
@@ -191,13 +211,23 @@
           </div>
 
           <div class="item-right">
-            <img src="/img/ar-marks.png" alt="ar-marks" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 300px; right: 0px;">
-            <img src="/img/found-mark.png" alt="found-mark" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 500px; right: 0px;">
+            <img src="/img/ar-marks.png" alt="ar-marks" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 300px; right: 150px;">
+            <img src="/img/found-mark.png" alt="found-mark" width="400px" class="round-corners" style="padding: 15px; background: white; position: absolute; top: 500px; right: 150px;">
           </div>
         </div>
 
         <aside class="notes" data-markdown>
-         - Wie die Positionsbestimmung funktioniert zeigt Omar
+          - Schwellwertfilter
+          - HoughLines -> Kanten finden
+          - Corner Detection
+          - Alles gängige Computer Vision Technologien
+          - Wer das selbst mal ausprobieren will $\rightarrow$ OpenCV
+            - Wer da mehr drüber wissen will $\rightarrow$ Kurs 3D Bilddatenverarbeitung
+
+          ---
+
+          - Omar zeigt euch dann noch das markenlose Trackingverfahren
+          - Zunächst erstmal Einschub, wie wir mit der Kamera überhaupt die Position bestimmen können
         </aside>
       </section>
 
@@ -229,15 +259,15 @@
             </div>
 
             <div class="item-left">
-              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none;">
+              <ul class="space-li" style="margin-left: 25px; margin-top: 100px; list-style-type: none;">
                 <li>Berechnung der Pose der Marke im Verhältnis zur Kamera</li>
                 <li>Intrinsische Kameraparameter:</li>
-                  <ul>
+                  <ul style="margin-left: 75px;">
                       <li>Entstehen mithilfe von Kamerakalibrierung</li>
                       <li>Mit Intrinsischen Kameraparameter entsteht Kalibrierungsmatrix</li>
                   </ul>
                 <li>Extrinsische Kameraparameter:</li>
-                  <ul>
+                  <ul style="margin-left: 75px;">
                       <li>Rotationsmatrix und Translationsvektor</li>
                       <li>Entstehen mithilfe von Kalibrierungsmatrix, Abstand zwischen Eckpunkte und Orientierung der Marke</li>
                   </ul>
@@ -270,24 +300,24 @@
               <h3>Merkmalbasierte Tracking-Verfahren</h3>
             </div>
             <div class="item-right">
-              <img src="./img/SIFT.jpg" alt="SIFT" height="425px" class="round-corners" style="margin-top: 150px; margin-right: 10px; max-width: 1000px !important;">
+              <img src="./img/SIFT.jpg" alt="SIFT" height="400px" class="round-corners" style="margin-top: 150px; margin-right: 10px; max-width: 1000px !important;">
             </div>
 
             <div class="item-left">
-              <ul class="space-li" style="margin-left: -50px; list-style-type: none;">
+              <ul class="space-li" style="margin-left: 0px; list-style-type: none;">
                 <li>Geometriebasiertes Tracking:</li>
-                  <ul>
+                  <ul style="margin-left: 75px;">
                       <li>Aus Kamerabild werden Merkmale extrahiert (Kanten und/oder Eckpunkte)</li>
                       <li>Vorangegangene Bilder werden aus vorherigen erreichneten Transformation erstellt</li>
                   </ul>
                 <li>Weitere merkmalbasierte Tracking-Verfahren:</li>
-                  <ul>
+                  <ul style="margin-left: 75px;">
                       <li>Visuelle Merkmale (Features) mithilfe von Merkmalsdetektoren erkennen</li>
                       <li>Vergleich mit 2D- oder 3D-Geometrie</li>
                       <li>Ausreißer mithilfe von RANSAC-Verfahren aussortiert</li>
                   </ul>                  
                 <li>Merkmalsdetekoren:</li>
-                  <ul>
+                  <ul style="margin-left: 75px;">
                     <li>SIFT (Scale Invariant Feature Transform)</li>
                     <li>SURF (Speeded Up Robust Features)</li>
                 </ul>  
@@ -332,7 +362,7 @@
             </div>
 
             <div class="item-left">
-              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none;">
+              <ul class="space-li" style="margin-left: 0px; margin-top: 100px; list-style-type: none;">
                 <li>Hauptsächlich Kameras verwendet</li>
                 <li>Tiefeninformation von 3D Kameras genutzt (Kinect, Intel RealSense)</li>
                 <li>Anfangs alles Unbekannt</li>
@@ -371,7 +401,7 @@
             <div class="item-left">
               <!-- @TODO falls du den Umbruch nicht willst: :) -->
               <!-- <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none; width: 2000px"> -->
-              <ul class="space-li" style="margin-left: -50px; margin-top: 100px; list-style-type: none; width: 2000px">
+              <ul class="space-li" style="margin-left: 0px; margin-top: 100px; list-style-type: none; width: 2000px">
                 <li>Kombinierte und unterschiedliche Tracking-Verfahren werden verwendet</li>
                 <li>Markenbasiertes Verfahren nur dann gut wenn Marken im Sichtfeld sind</li>
                 <li>Lagesensoren von Smartphone/Tablets verwendet</li>
